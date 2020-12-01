@@ -1,3 +1,6 @@
+/**
+ * Clock to invoke callback in Road class at a regular interval
+ */
 public class Clock extends Thread {
     Road road;
     boolean running;

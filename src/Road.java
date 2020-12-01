@@ -1,10 +1,11 @@
 import java.awt.*;
 
+/**
+ * Road displays the road and controls the car
+ */
 public class Road extends Canvas {
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
+
     int x = 10;
     Clock clock;
     String status = "Red";

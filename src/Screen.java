@@ -1,10 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * Screen for displaying all elements
+ */
 public class Screen extends Frame implements ItemListener {
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     int controller_x = 400;
@@ -59,9 +59,5 @@ public class Screen extends Frame implements ItemListener {
         status = item.toString();
         trafficLight.changeLight(status);
         road.controlCar(status);
-    }
-
-    public static void main(String[] args) throws Exception {
-        Screen screen = new Screen();
     }
 }

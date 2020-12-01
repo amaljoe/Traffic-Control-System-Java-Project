@@ -1,9 +1,9 @@
 import java.awt.*;
 
+/**
+ * TrafficLight handles the views and logic for traffic light
+ */
 public class TrafficLight extends Canvas {
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     private String status = "Red";
