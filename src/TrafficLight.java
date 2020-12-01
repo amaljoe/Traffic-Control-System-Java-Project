@@ -6,7 +6,7 @@ import java.awt.*;
 public class TrafficLight extends Canvas {
     private static final long serialVersionUID = 1L;
 
-    private String status = "Red";
+    private String status = "Green";
 
     TrafficLight() {
         setSize(100, 260);

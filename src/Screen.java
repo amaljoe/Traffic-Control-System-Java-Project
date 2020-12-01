@@ -9,7 +9,7 @@ public class Screen extends Frame implements ItemListener {
 
     int controller_x = 400;
     int controller_y = 100;
-    String status = "Red";
+    String status = "Green";
     TrafficLight trafficLight;
     Road road;
 
@@ -21,9 +21,9 @@ public class Screen extends Frame implements ItemListener {
         trafficLight = new TrafficLight();
         road = new Road();
         CheckboxGroup controller = new CheckboxGroup();
-        Checkbox green = new Checkbox("Green", controller, false);
+        Checkbox green = new Checkbox("Green", controller, true);
         Checkbox yellow = new Checkbox("Yellow", controller, false);
-        Checkbox red = new Checkbox("Red", controller, true);
+        Checkbox red = new Checkbox("Red", controller, false);
         trafficLight.setBounds(150, 30, 100, 260);
         
         road.setBounds(0, 310, 640, 150);
@@ -59,6 +59,6 @@ public class Screen extends Frame implements ItemListener {
         Object item = e.getItem();
         status = item.toString();
         trafficLight.changeLight(status);
-        road.controlCar(status);
+        road.controlCars(status);
     }
 }
