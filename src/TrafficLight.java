@@ -22,37 +22,41 @@ public class TrafficLight extends Canvas {
         g.fillRect(0, 0, 90, 260);
         g.setColor(Color.green.brighter().brighter());
         g.fillOval(20, 20, 50, 50);
-        g.setColor(Color.yellow.darker());
+        g.setColor(Color.yellow.darker().darker());
         g.fillOval(20, 100, 50, 50);
-        g.setColor(Color.red.darker());
+        g.setColor(Color.red.darker().darker());
         g.fillOval(20, 180, 50, 50);
     }
 
     private void setYellow(Graphics g) {
         g.setColor(Color.black);
         g.fillRect(0, 0, 90, 260);
-        g.setColor(Color.green.darker());
+        g.setColor(Color.green.darker().darker());
         g.fillOval(20, 20, 50, 50);
         g.setColor(Color.yellow.brighter().brighter());
         g.fillOval(20, 100, 50, 50);
-        g.setColor(Color.red.darker());
+        g.setColor(Color.red.darker().darker());
         g.fillOval(20, 180, 50, 50);
     }
 
     private void setRed(Graphics g) {
         g.setColor(Color.black);
         g.fillRect(0, 0, 90, 260);
-        g.setColor(Color.green.darker());
+        g.setColor(Color.green.darker().darker());
         g.fillOval(20, 20, 50, 50);
-        g.setColor(Color.yellow.darker());
+        g.setColor(Color.yellow.darker().darker());
         g.fillOval(20, 100, 50, 50);
         g.setColor(Color.red.brighter().brighter());
         g.fillOval(20, 180, 50, 50);
     }
 
+    @Override
+    public void update(Graphics g) {
+        paint(g);
+    }
 
     public void paint(Graphics g) {
-        switch(status){
+        switch(status) {
             case "Green":
                 setGreen(g);
                 break;

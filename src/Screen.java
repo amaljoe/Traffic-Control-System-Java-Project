@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class Screen extends Frame implements ItemListener{
+public class Screen extends Frame implements ItemListener {
     /**
      *
      */
@@ -17,14 +17,15 @@ public class Screen extends Frame implements ItemListener{
         setSize(640, 480);
         setVisible(true);
         setLayout(null);
+
+        trafficLight = new TrafficLight();
+        road = new Road();
         CheckboxGroup controller = new CheckboxGroup();
         Checkbox green = new Checkbox("Green", controller, false);
         Checkbox yellow = new Checkbox("Yellow", controller, false);
         Checkbox red = new Checkbox("Red", controller, true);
-        trafficLight = new TrafficLight();
-        road = new Road();
-
         trafficLight.setBounds(150, 30, 100, 260);
+        
         road.setBounds(0, 310, 640, 150);
         green.setBounds(controller_x, controller_y, 100, 30);
         yellow.setBounds(controller_x, controller_y + 30, 100, 30);
@@ -34,8 +35,8 @@ public class Screen extends Frame implements ItemListener{
         yellow.addItemListener(this);
         red.addItemListener(this);
 
-        add(trafficLight);
         add(road);
+        add(trafficLight);
         add(green);
         add(yellow);
         add(red);
@@ -47,10 +48,17 @@ public class Screen extends Frame implements ItemListener{
         });
     }
 
+    @Override
+    public void dispose() {
+        road.dispose();
+        super.dispose();
+    }
+
     public void itemStateChanged(ItemEvent e) {
         Object item = e.getItem();
         status = item.toString();
         trafficLight.changeLight(status);
+        road.controlCar(status);
     }
 
     public static void main(String[] args) throws Exception {
