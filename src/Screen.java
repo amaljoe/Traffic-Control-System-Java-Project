@@ -36,6 +36,7 @@ public class Screen extends Frame implements ItemListener {
         red.addItemListener(this);
 
         add(road);
+        
         add(trafficLight);
         add(green);
         add(yellow);
