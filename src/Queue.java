@@ -1,15 +1,15 @@
 public class Queue {
     int size;
-    int[] cars;
+    Car[] cars;
     int front = -1;
     int rear = -1;
 
     Queue(int size) {
         this.size = size;
-        cars = new int[size];
+        cars = new Car[size];
     }
 
-    public void insert(int car) {
+    public void insert(Car car) {
         int next = (rear + 1) % size;
         if (next == front) {
             System.out.println("Error: queue is full");
@@ -22,10 +22,10 @@ public class Queue {
         rear = next;
     }
 
-    public int remove() {
+    public Car remove() {
         if (front == -1){
             System.out.println("Error: queue is empty");
-            return -1;
+            return null;
         }
         int removedIndex = front;
         if (front == rear) {
@@ -42,13 +42,14 @@ public class Queue {
     
     /**
      * Test code for queue
+     * Change all occurences of Car datatype to int before testing
      * Expected Output: 1  2  3  error
      */
     public static void main(String[] args) {
         Queue q = new Queue(5);
-        q.insert(1);
-        q.insert(2);
-        q.insert(3);
+        // q.insert(1);
+        // q.insert(2);
+        // q.insert(3);
         System.out.println(q.remove());
         System.out.println(q.remove());
         System.out.println(q.remove());

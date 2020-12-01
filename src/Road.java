@@ -8,18 +8,21 @@ public class Road extends Canvas {
     private static final long serialVersionUID = 1L;
     static final int crossingLinePosition = 200;
     static final int numberOfCars = 10;
-
+    
+    Queue carsToStart;
     Clock clock;
     String status = "Green";
     Car[] cars;
     Random random;
     int[] markers;
     int[][] initialPositions;
+    boolean startCars = false;
 
     Road() {
         setSize(640, 150);
         setBackground(Color.gray.brighter());
         random = new Random();
+        carsToStart = new Queue(numberOfCars);
         markers = new int[5];
         initialPositions = new int[10][5];
         for(int i = 0; i < 5; i++){
@@ -56,7 +59,7 @@ public class Road extends Canvas {
             Color color = generateRandomColor();
             Position position = new Position();
             generateRandomPosition(position);
-            cars[i] = new Car(color, position.x * (Car.carWidth + Car.safeDistance * 2) , position.y, markers);
+            cars[i] = new Car(color, position.x * (Car.carWidth + Car.safeDistance * 2) , position.y, markers, carsToStart);
         }
     }
 
@@ -119,6 +122,7 @@ public class Road extends Canvas {
     }
 
     public void clockTick() {
+        startCars();
         for(int i = 0; i < numberOfCars; i ++){
             cars[i].drive();
         }
@@ -129,10 +133,19 @@ public class Road extends Canvas {
         for(int i = 0; i < 5; i ++){
             markers[i] = 700;
         }
+        startCars = true;
+    }
 
-        for(int i = 0; i < numberOfCars; i ++){
-            cars[i].start();
+    public void startCars() {
+        Car car = null;
+        if (startCars) {
+            car = carsToStart.remove();
         }
+        if (car == null) {
+            startCars = false;
+            return;
+        }
+        car.start();
     }
 
     public void redLight() {

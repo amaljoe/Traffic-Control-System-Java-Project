@@ -8,17 +8,19 @@ public class Car {
     static final int safeDistance = 15;
 
     Color color;
+    Queue carsToStart;
     int x;
     int track;
     int y;
     int[] markers;
     boolean moving = true;
 
-    Car(Color color, int x, int track, int[] markers) {
+    Car(Color color, int x, int track, int[] markers, Queue carsToStart) {
         this.color = color;
         this.x = x;
         this.track = track;
         this.markers = markers;
+        this.carsToStart = carsToStart;
         y = track * 30;
     }
 
@@ -39,11 +41,13 @@ public class Car {
 
     public void start() {
         moving = true;
+        move(1);
     }
 
     public void stop() {
         moving = false;
         markers[track] = x;
+        carsToStart.insert(this);
     }
 
     public void drive() {
