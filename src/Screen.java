@@ -17,7 +17,8 @@ public class Screen extends Frame implements ItemListener {
         setSize(640, 480);
         setVisible(true);
         setLayout(null);
-
+        setTitle("Traffic Simulation");
+        
         trafficLight = new TrafficLight();
         road = new Road();
         CheckboxGroup controller = new CheckboxGroup();
