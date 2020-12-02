@@ -5,7 +5,7 @@ public class Clock extends Thread {
     Road road;
     boolean running;
 
-    Clock(Road road){
+    Clock(Road road) {
         running = true;
         this.road = road;
     }
