@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.Random;
+import java.awt.image.*;
 
 /**
  * Road displays the road and controls the car
@@ -17,10 +18,14 @@ public class Road extends Canvas {
     int[] markers;
     int[][] initialPositions;
     boolean startCars = false;
+    BufferedImage bufferImage;
+    Graphics bufferGraphics;
 
     Road() {
         setSize(640, 150);
         setBackground(Color.gray.brighter());
+        bufferImage = new BufferedImage(640, 150, BufferedImage.TYPE_INT_RGB);
+        bufferGraphics = bufferImage.getGraphics();
         random = new Random();
         carsToStart = new Queue(numberOfCars);
         markers = new int[5];
@@ -155,11 +160,28 @@ public class Road extends Canvas {
     }
 
     @Override
+    public void update(Graphics g) {
+        paint(g);
+    }
+
+    @Override
     public void paint(Graphics g) {
-        paintCrossing(g);
+        bufferGraphics.clearRect(0, 0, 640, 150);
+        paintBuffer();
+        g.drawImage(bufferImage, 0, 0, this);
+    }
+
+    public void paintBuffer() {
+        paintBackground(bufferGraphics);
+        paintCrossing(bufferGraphics);
         for(int i = 0; i < 10; i ++){
-            cars[i].paint(g);
+            cars[i].paint(bufferGraphics);
         }
+    }
+
+    public void paintBackground(Graphics g) {
+        g.setColor(Color.gray.brighter());
+        g.fillRect(0, 0, 640, 150);
     }
 
     public void paintCrossing(Graphics g) {

@@ -18,7 +18,7 @@ public class Clock extends Thread {
         while(running) {
             road.clockTick();
             try {
-                Thread.sleep(100);
+                Thread.sleep(34);
             } catch(Exception e) {}
         }
     }

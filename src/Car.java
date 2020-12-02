@@ -21,7 +21,7 @@ public class Car {
         this.track = track;
         this.markers = markers;
         this.carsToStart = carsToStart;
-        y = track * 30;
+        y = 3 + track * 30;
     }
 
     private void goTo(int marker) {
