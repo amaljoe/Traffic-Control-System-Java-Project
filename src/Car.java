@@ -26,11 +26,7 @@ public class Car {
 
     private void goTo(int marker) {
         marker -= safeDistance;
-        if (x + carWidth + 3 <= marker) {
-            move(3);
-        } else if (x + carWidth + 2 <= marker) {
-            move(2);
-        } else if (x + carWidth + 1 <= marker) {
+        if (x + carWidth + 1 <= marker) {
             move(1);
         } else {
             move(0);
