@@ -31,17 +31,16 @@ public class Car {
         if (x + carWidth + 1 <= marker) {
             move(1);
         } else {
-            move(0);
             stop();
         }
     }
 
     public void start() {
         moving = true;
-        move(1);
     }
 
     public void stop() {
+        move(0);
         moving = false;
         markers[track] = x;
         carsToStart.insert(this);
@@ -56,7 +55,7 @@ public class Car {
             goTo(markers[track]);
         } else if (x + carWidth == markers[track]) {
             stop();
-        } else if (x + carWidth > markers[track]) {
+        } else {
             goTo(700);
         }
     }
@@ -64,7 +63,7 @@ public class Car {
     private void move(int distance) {
         x += distance;
         if (x > 640) {
-            x = 0 - carWidth * 2;
+            x = 400 - x;
         }
     }
 

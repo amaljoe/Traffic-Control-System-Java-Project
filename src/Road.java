@@ -133,13 +133,13 @@ public class Road extends Canvas {
         Car car = null;
         if (startCars) {
             if(wait <= 0) {
-                wait = 2;
                 car = carsToStart.remove();
                 if (car == null) {
                     startCars = false;
                     return;
                 } else {
                     car.start();
+                    wait = 2;
                 }
             } else {
                 wait--;
