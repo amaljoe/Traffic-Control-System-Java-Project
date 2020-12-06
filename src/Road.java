@@ -124,7 +124,9 @@ public class Road extends Canvas {
 
     private void greenLight() {
         for(int i = 0; i < 5; i ++){
-            markers[i] = 700;
+            if(markers[i] == crossingLinePosition) {
+                markers[i] = 700;
+            }
         }
         startCars = true;
     }
@@ -139,7 +141,7 @@ public class Road extends Canvas {
                     return;
                 } else {
                     car.start();
-                    wait = 2;
+                    wait = 5;
                 }
             } else {
                 wait--;

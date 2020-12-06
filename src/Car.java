@@ -37,6 +37,9 @@ public class Car {
 
     public void start() {
         moving = true;
+        if(markers[track] == x) {
+            markers[track] = 700;
+        }
     }
 
     public void stop() {
