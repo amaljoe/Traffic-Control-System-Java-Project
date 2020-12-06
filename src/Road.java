@@ -103,12 +103,10 @@ public class Road extends Canvas {
                 // it is an unique position
                 initialPositions[x][y] = 1;
                 unique = true;
-                System.out.println("Unique position");
             } else {
                 // not an unique position
                 x = random.nextInt(10);
                 y = random.nextInt(5);
-                System.out.println("Not an unique position");
             }
         }
         position.x = x;
