@@ -141,7 +141,7 @@ public class Road extends Canvas {
                     return;
                 } else {
                     car.start();
-                    wait = 5;
+                    wait = 4;
                 }
             } else {
                 wait--;
