@@ -1,5 +1,5 @@
 /**
- * Queue data structure to start the cars one by one
+ * Queue data structure to start the cars one by one from halt
  */
 public class Queue {
     int size;
@@ -38,22 +38,5 @@ public class Queue {
             front++;
         }
         return cars[removedIndex];
-    }
-
-    
-    /**
-     * Test code for queue
-     * Change all occurences of Car datatype to int before testing
-     * Expected Output: 1  2  3  error
-     */
-    public static void main(String[] args) {
-        Queue q = new Queue(5);
-        // q.insert(1);
-        // q.insert(2);
-        // q.insert(3);
-        System.out.println(q.remove());
-        System.out.println(q.remove());
-        System.out.println(q.remove());
-        System.out.println(q.remove());
     }
 }

@@ -64,7 +64,7 @@ public class Car {
     private void move(int distance) {
         x += distance;
         if (x > 640) {
-            x = 0 - carWidth;
+            x = 0 - carWidth * 2;
         }
     }
 

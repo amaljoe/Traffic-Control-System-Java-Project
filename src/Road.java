@@ -8,7 +8,7 @@ import java.awt.image.*;
 public class Road extends Canvas {
     private static final long serialVersionUID = 1L;
     static final int crossingLinePosition = 200;
-    static final int numberOfCars = 10;
+    static final int numberOfCars = 15;
     
     Queue carsToStart;
     Clock clock;
@@ -20,6 +20,7 @@ public class Road extends Canvas {
     boolean startCars = false;
     BufferedImage bufferImage;
     Graphics bufferGraphics;
+    int wait = 0;
 
     Road() {
         setSize(640, 150);
@@ -131,13 +132,19 @@ public class Road extends Canvas {
     private void startCars() {
         Car car = null;
         if (startCars) {
-            car = carsToStart.remove();
+            if(wait <= 0) {
+                wait = 2;
+                car = carsToStart.remove();
+                if (car == null) {
+                    startCars = false;
+                    return;
+                } else {
+                    car.start();
+                }
+            } else {
+                wait--;
+            }
         }
-        if (car == null) {
-            startCars = false;
-            return;
-        }
-        car.start();
     }
 
     private void redLight() {
@@ -190,6 +197,9 @@ public class Road extends Canvas {
     }
 }
 
+/**
+ * Position class to store coordinates of car
+ */
 class Position {
     int x;
     int y;
