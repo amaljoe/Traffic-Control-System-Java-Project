@@ -35,7 +35,6 @@ public class Car {
         } else {
             move(0);
             stop();
-            System.out.println("error: car going while touching the marker" + marker);
         }
     }
 

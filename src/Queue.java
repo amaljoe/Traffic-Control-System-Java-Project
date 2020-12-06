@@ -12,7 +12,6 @@ public class Queue {
     public void insert(Car car) {
         int next = (rear + 1) % size;
         if (next == front) {
-            System.out.println("Error: queue is full");
             return;
         }
         if (front == -1) {
@@ -24,7 +23,6 @@ public class Queue {
 
     public Car remove() {
         if (front == -1){
-            System.out.println("Error: queue is empty");
             return null;
         }
         int removedIndex = front;
