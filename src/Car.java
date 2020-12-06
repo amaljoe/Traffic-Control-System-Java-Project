@@ -1,7 +1,9 @@
 import java.awt.Color;
-
 import java.awt.*;
 
+/**
+ * Car holds the logic for driving the car and drawing it on screen
+ */
 public class Car {
     static final int carWidth = 40;
     static final int carHeight = 20;
@@ -71,7 +73,10 @@ public class Car {
         g.fillRect(x + 0, y + carHeight / 2, carWidth / 5, carHeight / 2);
         g.fillRect(x + carWidth / 5, y, 3 * carWidth / 5, carHeight);
         g.fillRect(x + 4 * carWidth / 5, y + carHeight / 2, carWidth / 5, carHeight / 2);
-        g.setColor(Color.black);
+        g.setColor(Color.white);
+        g.fillRoundRect(x + carWidth / 5 + 2, y + 2, 7, 7, 2, 2);
+        g.fillRoundRect(x + 2 * carWidth / 5 + 6, y + 2, 7, 7, 2, 2);
+        g.setColor(Color.black.brighter());
         g.fillOval(x + carWidth / 8, y + 3 * carHeight / 4, carHeight / 2, carHeight / 2);
         g.fillOval(x + 5 * carWidth / 7, y + 3 * carHeight / 4, carHeight / 2, carHeight / 2);
     }

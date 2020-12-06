@@ -25,8 +25,8 @@ public class Screen extends Frame implements ItemListener {
         Checkbox green = new Checkbox("Green", controller, true);
         Checkbox yellow = new Checkbox("Yellow", controller, false);
         Checkbox red = new Checkbox("Red", controller, false);
-        trafficLight.setBounds(150, 30, 100, 260);
         
+        trafficLight.setBounds(150, 30, 100, 260);
         road.setBounds(0, 310, 640, 150);
         green.setBounds(controller_x, controller_y, 100, 30);
         yellow.setBounds(controller_x, controller_y + 30, 100, 30);

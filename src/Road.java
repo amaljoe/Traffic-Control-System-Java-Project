@@ -3,7 +3,7 @@ import java.util.Random;
 import java.awt.image.*;
 
 /**
- * Road displays the road and controls the car
+ * Road displays the road and handle the cars
  */
 public class Road extends Canvas {
     private static final long serialVersionUID = 1L;
@@ -58,7 +58,7 @@ public class Road extends Canvas {
         }
     }
 
-    public void generateCars() {
+    private void generateCars() {
         for(int i = 0; i < numberOfCars; i ++){
             Color color = generateRandomColor();
             Position position = new Position();
@@ -67,44 +67,34 @@ public class Road extends Canvas {
         }
     }
 
-    public Color generateRandomColor() {
+    private Color generateRandomColor() {
         Color color;
         switch (random.nextInt(6)) {
             case 0:
                 color = Color.blue;
                 break;
             case 1:
-                color = Color.green;
+                color = Color.green.darker();
                 break;
             case 2:
-                color = Color.yellow;
+                color = Color.red.darker();
                 break;
             case 3:
-                color = Color.magenta;
+                color = Color.red;
                 break;
             case 4:
-                color = Color.pink;
+                color = Color.red.brighter();
                 break;
             case 5:
-                color = Color.red;
+                color = Color.magenta.darker();
                 break;
             default:
                 color = Color.orange;
         }
-        switch (random.nextInt(3)) {
-            case 0:
-                break;
-            case 1:
-                color = color.darker();
-                break;
-            case 2:
-                color = color.brighter();
-                break;
-        }
         return color;
     }
 
-    public void generateRandomPosition(Position position){
+    private void generateRandomPosition(Position position){
         int x = random.nextInt(10);
         int y = random.nextInt(5);
         boolean unique = false;
@@ -133,14 +123,14 @@ public class Road extends Canvas {
         repaint();
     }
 
-    public void greenLight() {
+    private void greenLight() {
         for(int i = 0; i < 5; i ++){
             markers[i] = 700;
         }
         startCars = true;
     }
 
-    public void startCars() {
+    private void startCars() {
         Car car = null;
         if (startCars) {
             car = carsToStart.remove();
@@ -152,7 +142,7 @@ public class Road extends Canvas {
         car.start();
     }
 
-    public void redLight() {
+    private void redLight() {
         for(int i = 0; i < 5; i ++){
             markers[i] = crossingLinePosition;
         }
@@ -179,14 +169,20 @@ public class Road extends Canvas {
     }
 
     public void paintBackground(Graphics g) {
-        g.setColor(Color.gray.brighter());
+        g.setColor(Color.gray.darker());
         g.fillRect(0, 0, 640, 150);
     }
 
     public void paintCrossing(Graphics g) {
         g.setColor(Color.white);
-        for(int i = 10; i < 150; i += 30) {
-            g.fillRect(200, i, 5, 15);
+        for(int i = 5; i < 150; i += 15) {
+            g.fillRect(crossingLinePosition, i, 2, 5);
+        }
+        for(int i = 10; i < 150; i += 25) {
+            g.fillRect(crossingLinePosition + 10, i, 20, 10);
+        }
+        for(int i = 5; i < 150; i += 15) {
+            g.fillRect(crossingLinePosition + 40, i, 2, 5);
         }
     }
 

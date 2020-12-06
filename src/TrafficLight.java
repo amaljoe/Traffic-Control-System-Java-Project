@@ -19,7 +19,7 @@ public class TrafficLight extends Canvas {
 
     private void setGreen(Graphics g) {
         g.setColor(Color.black);
-        g.fillRect(0, 0, 90, 260);
+        g.fillRoundRect(0, 0, 90, 260, 30, 30);
         g.setColor(Color.green.brighter().brighter());
         g.fillOval(20, 20, 50, 50);
         g.setColor(Color.yellow.darker().darker());
@@ -30,7 +30,7 @@ public class TrafficLight extends Canvas {
 
     private void setYellow(Graphics g) {
         g.setColor(Color.black);
-        g.fillRect(0, 0, 90, 260);
+        g.fillRoundRect(0, 0, 90, 260, 30, 30);
         g.setColor(Color.green.darker().darker());
         g.fillOval(20, 20, 50, 50);
         g.setColor(Color.yellow.brighter().brighter());
@@ -41,7 +41,7 @@ public class TrafficLight extends Canvas {
 
     private void setRed(Graphics g) {
         g.setColor(Color.black);
-        g.fillRect(0, 0, 90, 260);
+        g.fillRoundRect(0, 0, 90, 260, 30, 30);
         g.setColor(Color.green.darker().darker());
         g.fillOval(20, 20, 50, 50);
         g.setColor(Color.yellow.darker().darker());

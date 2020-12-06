@@ -1,3 +1,6 @@
+/**
+ * Queue data structure to start the cars one by one
+ */
 public class Queue {
     int size;
     Car[] cars;
