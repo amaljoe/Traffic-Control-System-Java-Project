@@ -161,7 +161,7 @@ public class Road extends Canvas {
     public void paintBuffer() {
         paintBackground(bufferGraphics);
         paintCrossing(bufferGraphics);
-        for(int i = 0; i < 10; i ++){
+        for(int i = 0; i < numberOfCars; i ++){
             cars[i].paint(bufferGraphics);
         }
     }
