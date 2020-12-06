@@ -51,7 +51,6 @@ public class Road extends Canvas {
                 greenLight();
                 break;
             case "Yellow":
-                redLight();
                 break;
             case "Red":
                 redLight();
