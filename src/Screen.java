@@ -19,6 +19,7 @@ public class Screen extends Frame implements ItemListener {
         setVisible(true);
         setLayout(null);
         setTitle("Traffic Simulation");
+        setResizable(false);
         
         trafficLight = new TrafficLight();
         road = new Road();
